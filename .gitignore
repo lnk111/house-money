@@ -13,8 +13,9 @@
 # Claude Code 로컬 설정
 .claude/
 
-# 폰트 교체 전 원본 백업 (로컬 전용)
+# 원본 백업 (로컬 전용)
 .backup-fonts/
+.backup-responsive/
 
 # 로그 / 임시 파일
 *.log
