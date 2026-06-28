@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>재테크자료 — 내집마련·투자 정보 모음 | 내집마련 계산기</title>
+<meta name="description" content="신생아 특례대출, 생애최초, 디딤돌·보금자리론, 취득세, 복리·S&P500·ISA까지. 내 집 마련과 자산 형성 정보를 한곳에 모았습니다.">
+<meta name="keywords" content="재테크 자료, 내집마련 정보, 주택담보대출 가이드, 정책대출, 복리 투자, 부동산 자금">
+<meta property="og:type" content="website">
+<meta property="og:title" content="재테크자료 — 내집마련·투자 정보 모음">
+<meta property="og:description" content="내 집 마련과 자산 형성에 필요한 정보를 한곳에.">
+<meta property="og:url" content="https://homeplaning.kr/guide.html">
+<link rel="canonical" href="https://homeplaning.kr/guide.html">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#eef1f6;--card:#fff;--ink:#1b2130;--ink2:#2a3142;--muted:#6f7888;--muted2:#9aa3b1;
+    --line:#e6eaf0;--track:#e3e7ee;--accent:#e8492f;--accent-soft:#fdece8;--chip:#f2f5f9;
+    --navy:#1b2130;--navy-soft:#39414f;--ok:#0f9d6b;--ok-soft:#e6f6ef;
+    --radius:18px;--shadow:0 1px 2px rgba(27,33,48,.04),0 8px 24px rgba(27,33,48,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;padding:22px 20px 70px;font-size:16px}
+  .wrap{max-width:760px;margin:0 auto}
+  nav{display:flex;justify-content:center;margin-bottom:28px}
+  .nav-seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;gap:2px;box-shadow:var(--shadow);flex-wrap:wrap;justify-content:center}
+  .nav-seg a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:9px 16px;border-radius:999px;letter-spacing:-.01em;transition:all .15s;white-space:nowrap}
+  .nav-seg a:hover{color:var(--ink)}
+  .nav-seg a.active{background:var(--navy);color:#fff}
+  .eyebrow{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;margin-bottom:10px}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+  .lead{font-size:17px;color:var(--ink2);margin-bottom:8px}
+  .meta{font-size:13px;color:var(--muted2);margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:22px}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px;margin-bottom:18px}
+  h2{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:6px 0 14px;scroll-margin-top:20px}
+  h2 .n{color:var(--accent);margin-right:8px}
+  h3{font-size:16.5px;font-weight:800;margin:20px 0 8px;color:var(--ink)}
+  p{margin-bottom:12px;color:var(--ink2)}
+  ul{margin:0 0 12px 2px;padding-left:18px}
+  li{margin-bottom:7px;color:var(--ink2)}
+  strong{font-weight:800;color:var(--ink)}
+  .accent{color:var(--accent);font-weight:800}
+  .toc{background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:22px}
+  .toc .tt{font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px;letter-spacing:.02em}
+  .toc ol{margin:0;padding-left:20px}.toc li{margin-bottom:5px}
+  .toc a{color:var(--ink2);text-decoration:none;font-weight:600;font-size:15px}
+  .toc a:hover{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:6px 0 14px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+  th{background:var(--chip);font-weight:700;color:var(--ink);font-size:13.5px}
+  td{color:var(--ink2)}
+  td:first-child,th:first-child{font-weight:600}
+  .tnote{font-size:12.5px;color:var(--muted2);margin-top:-4px}
+  .keybox{background:var(--navy);color:#fff;border-radius:14px;padding:20px 22px;margin:8px 0 16px}
+  .keybox .kt{font-size:12.5px;font-weight:700;color:#aeb6c2;letter-spacing:.03em;margin-bottom:10px}
+  .keybox ul{padding-left:0;list-style:none;margin:0}
+  .keybox li{color:#e6eaf0;margin-bottom:8px;display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #2b3344;padding-bottom:8px;font-size:14.5px}
+  .keybox li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .keybox li b{color:#fff;font-weight:800;text-align:right}
+  .cta{background:linear-gradient(135deg,#fff,#f6f8fb);border:1.5px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0;text-align:center}
+  .cta .ct{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .cta .cs{font-size:14px;color:var(--muted);margin-bottom:16px}
+  .cta a{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:13px 26px;border-radius:12px;letter-spacing:-.01em}
+  .cta a:hover{background:#2b3344}
+  .faq h3::before{content:"Q. ";color:var(--accent)}
+  .faq p{margin-left:2px}
+  .related a{display:block;text-decoration:none;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:15px}
+  .related a:last-child{border-bottom:none}
+  .related a:hover{color:var(--accent)}
+  .related .rc{font-size:12px;color:var(--muted2);font-weight:600;margin-right:8px}
+  .disc{font-size:12.5px;color:var(--muted2);line-height:1.6;margin-top:8px}
+  footer{text-align:center;margin-top:28px;font-size:13px;color:var(--muted2)}
+  footer a{color:var(--muted);text-decoration:none}
+  /* guide list */
+  .ghead{text-align:center;margin-bottom:8px}
+  .ghead h1{font-size:30px;margin-bottom:8px}
+  .ghead p{color:var(--muted);font-size:16px;margin-bottom:26px}
+  .gcat{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.03em;margin:26px 2px 12px}
+  .glist{display:grid;gap:12px}
+  .gitem{display:block;background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;text-decoration:none;border:1px solid transparent;transition:border-color .15s}
+  .gitem:hover{border-color:var(--navy)}
+  .gitem .gt{font-size:16.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+  .gitem .gd{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .gbadge{display:inline-block;font-size:11px;font-weight:800;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:3px 8px;margin-bottom:8px}
+  @media(max-width:560px){body{padding:18px 14px 56px}h1{font-size:25px}.ghead h1{font-size:25px}.card{padding:22px 20px}table{font-size:13.5px}th,td{padding:9px 8px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="nav-seg"><a href="index.html">내집 계산기</a><a href="future.html">미래 자산</a><a href="guide.html" class="active">재테크자료</a></div></nav>
+<div class="ghead"><h1>재테크자료</h1><p>내 집 마련과 자산 형성에 필요한 정보를 한곳에 모았습니다.</p></div><div class="gcat">내집마련 대출</div><div class="glist"><a class="gitem" href="newborn-loan.html"><span class="gbadge">내집마련 대출</span><div class="gt">신생아 특례대출 조건·금리·한도 한눈에</div><div class="gd">출산 가구라면 가장 먼저 따져봐야 할 1순위 주택구입 대출. 자격·금리·한도·신청법을 2026년 기준으로 정리했습니다.</div></a><a class="gitem" href="first-home-loan.html"><span class="gbadge">내집마련 대출</span><div class="gt">생애최초 주택담보대출, 무엇이 다른가</div><div class="gd">처음 집을 사는 사람에게는 LTV·세금·정책대출에서 따로 우대가 붙습니다. 2026년 기준 혜택을 한 번에 정리했어요.</div></a><a class="gitem" href="didimdol-vs-bogeumjari.html"><span class="gbadge">내집마련 대출</span><div class="gt">디딤돌 vs 보금자리론, 나에겐 뭐가 맞을까</div><div class="gd">둘 다 무주택자를 위한 정책대출이지만 소득 기준·금리·한도가 달라요. 핵심 차이를 표로 정리했습니다.</div></a><a class="gitem" href="ltv-dsr-dti.html"><span class="gbadge">내집마련 대출</span><div class="gt">LTV·DSR·DTI, 3분이면 이해 끝</div><div class="gd">대출 한도는 이 세 가지가 동시에 걸려서, 그중 가장 낮은 값이 내 한도가 됩니다. 하나씩 쉽게 풀어볼게요.</div></a><a class="gitem" href="mortgage-rate-guide.html"><span class="gbadge">내집마련 대출</span><div class="gt">금리 유형과 상환 방식, 핵심만</div><div class="gd">같은 금액을 빌려도 금리 유형과 상환 방식에 따라 매달 내는 돈과 총이자가 달라져요.</div></a><a class="gitem" href="newlywed-housing.html"><span class="gbadge">내집마련 대출</span><div class="gt">신혼부부 내집마련, 챙길 혜택 총정리</div><div class="gd">신혼부부는 소득 기준 완화부터 특별공급까지 우대가 많아요. 빠짐없이 챙기도록 정리했습니다.</div></a></div><div class="gcat">세금·비용</div><div class="glist"><a class="gitem" href="acquisition-tax.html"><span class="gbadge">세금·비용</span><div class="gt">집 살 때 취득세, 얼마나 낼까</div><div class="gd">매매가 외에 반드시 드는 현금이 취득세예요. 세율과 생애최초 감면을 알면 필요 현금이 정확해집니다.</div></a><a class="gitem" href="cash-needed.html"><span class="gbadge">세금·비용</span><div class="gt">집 살 때, 내 돈 얼마 있어야 하나</div><div class="gd">집값이 아니라 '필요한 현금'이 진짜 질문이에요. 공식은 간단하지만 빠뜨리기 쉬운 항목이 있어요.</div></a></div><div class="gcat">투자·재테크</div><div class="glist"><a class="gitem" href="compound-interest.html"><span class="gbadge">투자·재테크</span><div class="gt">복리의 힘, 숫자로 보면 놀랍다</div><div class="gd">복리는 '이자에 또 이자가 붙는' 구조예요. 시간이 길수록 단리와의 차이가 폭발적으로 벌어집니다.</div></a><a class="gitem" href="sp500-investing.html"><span class="gbadge">투자·재테크</span><div class="gt">S&P500 적립식 투자, 기초부터</div><div class="gd">개별 종목을 고르기 부담스럽다면 시장 전체를 사는 방법이 있어요. 초보가 알아야 할 핵심만 담았습니다.</div></a><a class="gitem" href="isa-account.html"><span class="gbadge">투자·재테크</span><div class="gt">ISA 계좌, 절세의 기본기</div><div class="gd">투자 수익에 붙는 세금을 줄여주는 절세 계좌예요. 일반형과 서민형의 차이부터 챙겨봐요.</div></a></div><footer style="margin-top:34px"><a href="index.html">내집 계산기</a> · <a href="future.html">미래 자산 계산기</a></footer>
+</div>
+</body>
+</html>

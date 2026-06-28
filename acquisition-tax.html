@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주택 취득세 계산법과 생애최초 감면 (2026) | 내집마련 계산기</title>
+<meta name="description" content="집을 살 때 내는 취득세율(6억 이하 1.1%부터)과 생애최초 감면, 필요 현금에 미치는 영향을 2026년 기준으로 정리했습니다.">
+<meta name="keywords" content="주택 취득세, 취득세 계산, 취득세율 2026, 생애최초 취득세 감면, 부동산 취득세, 아파트 취득세">
+<meta property="og:type" content="article">
+<meta property="og:title" content="주택 취득세 계산법과 생애최초 감면 (2026)">
+<meta property="og:description" content="취득세율·감면·부대비용을 한 번에.">
+<meta property="og:url" content="https://homeplaning.kr/acquisition-tax.html">
+<link rel="canonical" href="https://homeplaning.kr/acquisition-tax.html">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#eef1f6;--card:#fff;--ink:#1b2130;--ink2:#2a3142;--muted:#6f7888;--muted2:#9aa3b1;
+    --line:#e6eaf0;--track:#e3e7ee;--accent:#e8492f;--accent-soft:#fdece8;--chip:#f2f5f9;
+    --navy:#1b2130;--navy-soft:#39414f;--ok:#0f9d6b;--ok-soft:#e6f6ef;
+    --radius:18px;--shadow:0 1px 2px rgba(27,33,48,.04),0 8px 24px rgba(27,33,48,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;padding:22px 20px 70px;font-size:16px}
+  .wrap{max-width:760px;margin:0 auto}
+  nav{display:flex;justify-content:center;margin-bottom:28px}
+  .nav-seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;gap:2px;box-shadow:var(--shadow);flex-wrap:wrap;justify-content:center}
+  .nav-seg a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:9px 16px;border-radius:999px;letter-spacing:-.01em;transition:all .15s;white-space:nowrap}
+  .nav-seg a:hover{color:var(--ink)}
+  .nav-seg a.active{background:var(--navy);color:#fff}
+  .eyebrow{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;margin-bottom:10px}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+  .lead{font-size:17px;color:var(--ink2);margin-bottom:8px}
+  .meta{font-size:13px;color:var(--muted2);margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:22px}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px;margin-bottom:18px}
+  h2{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:6px 0 14px;scroll-margin-top:20px}
+  h2 .n{color:var(--accent);margin-right:8px}
+  h3{font-size:16.5px;font-weight:800;margin:20px 0 8px;color:var(--ink)}
+  p{margin-bottom:12px;color:var(--ink2)}
+  ul{margin:0 0 12px 2px;padding-left:18px}
+  li{margin-bottom:7px;color:var(--ink2)}
+  strong{font-weight:800;color:var(--ink)}
+  .accent{color:var(--accent);font-weight:800}
+  .toc{background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:22px}
+  .toc .tt{font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px;letter-spacing:.02em}
+  .toc ol{margin:0;padding-left:20px}.toc li{margin-bottom:5px}
+  .toc a{color:var(--ink2);text-decoration:none;font-weight:600;font-size:15px}
+  .toc a:hover{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:6px 0 14px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+  th{background:var(--chip);font-weight:700;color:var(--ink);font-size:13.5px}
+  td{color:var(--ink2)}
+  td:first-child,th:first-child{font-weight:600}
+  .tnote{font-size:12.5px;color:var(--muted2);margin-top:-4px}
+  .keybox{background:var(--navy);color:#fff;border-radius:14px;padding:20px 22px;margin:8px 0 16px}
+  .keybox .kt{font-size:12.5px;font-weight:700;color:#aeb6c2;letter-spacing:.03em;margin-bottom:10px}
+  .keybox ul{padding-left:0;list-style:none;margin:0}
+  .keybox li{color:#e6eaf0;margin-bottom:8px;display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #2b3344;padding-bottom:8px;font-size:14.5px}
+  .keybox li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .keybox li b{color:#fff;font-weight:800;text-align:right}
+  .cta{background:linear-gradient(135deg,#fff,#f6f8fb);border:1.5px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0;text-align:center}
+  .cta .ct{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .cta .cs{font-size:14px;color:var(--muted);margin-bottom:16px}
+  .cta a{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:13px 26px;border-radius:12px;letter-spacing:-.01em}
+  .cta a:hover{background:#2b3344}
+  .faq h3::before{content:"Q. ";color:var(--accent)}
+  .faq p{margin-left:2px}
+  .related a{display:block;text-decoration:none;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:15px}
+  .related a:last-child{border-bottom:none}
+  .related a:hover{color:var(--accent)}
+  .related .rc{font-size:12px;color:var(--muted2);font-weight:600;margin-right:8px}
+  .disc{font-size:12.5px;color:var(--muted2);line-height:1.6;margin-top:8px}
+  footer{text-align:center;margin-top:28px;font-size:13px;color:var(--muted2)}
+  footer a{color:var(--muted);text-decoration:none}
+  /* guide list */
+  .ghead{text-align:center;margin-bottom:8px}
+  .ghead h1{font-size:30px;margin-bottom:8px}
+  .ghead p{color:var(--muted);font-size:16px;margin-bottom:26px}
+  .gcat{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.03em;margin:26px 2px 12px}
+  .glist{display:grid;gap:12px}
+  .gitem{display:block;background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;text-decoration:none;border:1px solid transparent;transition:border-color .15s}
+  .gitem:hover{border-color:var(--navy)}
+  .gitem .gt{font-size:16.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+  .gitem .gd{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .gbadge{display:inline-block;font-size:11px;font-weight:800;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:3px 8px;margin-bottom:8px}
+  @media(max-width:560px){body{padding:18px 14px 56px}h1{font-size:25px}.ghead h1{font-size:25px}.card{padding:22px 20px}table{font-size:13.5px}th,td{padding:9px 8px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="nav-seg"><a href="index.html">내집 계산기</a><a href="future.html">미래 자산</a><a href="guide.html" class="active">재테크자료</a></div></nav>
+<article><div class="eyebrow">세금·비용</div><h1>집 살 때 취득세, 얼마나 낼까</h1><p class="lead">매매가 외에 반드시 드는 현금이 취득세예요. 세율과 생애최초 감면을 알면 필요 현금이 정확해집니다.</p><div class="meta">2026년 6월 기준 · homeplaning.kr</div>
+<div class="card">
+<h2><span class="n">01</span>취득세율 (1주택, 전용 85㎡ 이하)</h2>
+<table><thead><tr><th>매매가</th><th>세율(지방교육세 포함)</th></tr></thead><tbody>
+<tr><td>6억 이하</td><td>1.1%</td></tr>
+<tr><td>6억 초과 9억 이하</td><td>1.1%~3.3% 누진</td></tr>
+<tr><td>9억 초과</td><td>3.3%</td></tr></tbody></table>
+<p class="tnote">※ 전용 85㎡ 초과 시 농어촌특별세가 추가됩니다.</p>
+<p>예를 들어 <strong>5억 아파트</strong>라면 취득세는 약 <span class="accent">550만 원</span>(5억×1.1%)이에요. 적지 않은 현금이라 자금 계획에 꼭 넣어야 합니다.</p>
+</div>
+<div class="card">
+<h2><span class="n">02</span>생애최초 감면</h2>
+<p>생애최초로 12억 이하 주택을 사면 취득세를 <strong>최대 200만 원</strong> 감면받습니다. 5억 주택이면 550만 → 약 350만 원으로 줄어드는 셈이에요.</p>
+</div>
+<div class="card">
+<h2><span class="n">03</span>취득세 말고 또 드는 비용</h2>
+<ul>
+<li><strong>중개보수</strong>: 매매가 구간별 요율(6~9억 0.4%, 9~12억 0.5% 등)</li>
+<li><strong>법무사 비용</strong>: 등기 대행, 보통 수십만 원</li>
+<li><strong>이사·수리비</strong> 등</li>
+</ul>
+<p>이 모든 게 '필요 현금'에 포함돼요. 그래서 "매매가 − 대출 = 필요 현금"이 아니라, 여기에 부대비용을 더해야 진짜 필요한 돈이 나옵니다.</p>
+</div>
+<div class="cta"><div class="ct">계산기가 자동으로 더해줘요</div><div class="cs">매매가를 넣으면 취득세·중개비까지 포함한 진짜 필요 현금이 나와요.</div><a href="index.html">취득세 포함 필요 현금 계산 &rarr;</a></div>
+<div class="card related"><h2><span class="n">+</span>관련 글</h2><a href="first-home-loan.html"><span class="rc">연계</span>생애최초 주택담보대출 총정리</a><a href="ltv-dsr-dti.html"><span class="rc">기초</span>LTV·DSR·DTI 쉽게 이해하기</a><a href="cash-needed.html"><span class="rc">자금</span>내 집 살 때 현금 얼마나 필요할까</a></div><div class="card"><p class="disc">본 글은 주택도시기금·한국주택금융공사 등 공개 자료를 바탕으로 2026년 6월 기준으로 정리한 참고용 정보입니다. 정책·금리·세율은 수시로 바뀌며, 실제 대출 가능 여부·한도·금리·세금은 KB시세·신용점수·소득증빙·심사 결과에 따라 달라질 수 있습니다. 신청 전 반드시 주택도시기금(nhuf.molit.go.kr)·한국주택금융공사(hf.go.kr) 등에서 최신 기준을 확인하세요.</p></div><footer><a href="index.html">내집 계산기</a> · <a href="future.html">미래 자산</a> · <a href="guide.html">재테크자료</a></footer></article>
+</div>
+</body>
+</html>

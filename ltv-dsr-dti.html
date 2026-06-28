@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LTV·DSR·DTI 쉽게 이해하기 — 내 대출 한도를 정하는 3가지 (2026) | 내집마련 계산기</title>
+<meta name="description" content="주택담보대출 한도를 결정하는 LTV·DSR·DTI를 누구나 이해하게 쉽게 설명. 2026년 스트레스 DSR과 한도 상한까지 정리했습니다.">
+<meta name="keywords" content="LTV DSR DTI, LTV 뜻, DSR 계산, DTI 뜻, 스트레스 DSR, 주택담보대출 한도, 2026 대출 규제">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LTV·DSR·DTI 쉽게 이해하기 (2026)">
+<meta property="og:description" content="내 대출 한도를 정하는 세 가지 규제를 한 번에.">
+<meta property="og:url" content="https://homeplaning.kr/ltv-dsr-dti.html">
+<link rel="canonical" href="https://homeplaning.kr/ltv-dsr-dti.html">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#eef1f6;--card:#fff;--ink:#1b2130;--ink2:#2a3142;--muted:#6f7888;--muted2:#9aa3b1;
+    --line:#e6eaf0;--track:#e3e7ee;--accent:#e8492f;--accent-soft:#fdece8;--chip:#f2f5f9;
+    --navy:#1b2130;--navy-soft:#39414f;--ok:#0f9d6b;--ok-soft:#e6f6ef;
+    --radius:18px;--shadow:0 1px 2px rgba(27,33,48,.04),0 8px 24px rgba(27,33,48,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;padding:22px 20px 70px;font-size:16px}
+  .wrap{max-width:760px;margin:0 auto}
+  nav{display:flex;justify-content:center;margin-bottom:28px}
+  .nav-seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;gap:2px;box-shadow:var(--shadow);flex-wrap:wrap;justify-content:center}
+  .nav-seg a{font-size:14px;font-weight:600;color:var(--muted);text-decoration:none;padding:9px 16px;border-radius:999px;letter-spacing:-.01em;transition:all .15s;white-space:nowrap}
+  .nav-seg a:hover{color:var(--ink)}
+  .nav-seg a.active{background:var(--navy);color:#fff}
+  .eyebrow{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;margin-bottom:10px}
+  h1{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:14px}
+  .lead{font-size:17px;color:var(--ink2);margin-bottom:8px}
+  .meta{font-size:13px;color:var(--muted2);margin-bottom:26px;border-bottom:1px solid var(--line);padding-bottom:22px}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 28px;margin-bottom:18px}
+  h2{font-size:21px;font-weight:800;letter-spacing:-.02em;margin:6px 0 14px;scroll-margin-top:20px}
+  h2 .n{color:var(--accent);margin-right:8px}
+  h3{font-size:16.5px;font-weight:800;margin:20px 0 8px;color:var(--ink)}
+  p{margin-bottom:12px;color:var(--ink2)}
+  ul{margin:0 0 12px 2px;padding-left:18px}
+  li{margin-bottom:7px;color:var(--ink2)}
+  strong{font-weight:800;color:var(--ink)}
+  .accent{color:var(--accent);font-weight:800}
+  .toc{background:var(--chip);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:22px}
+  .toc .tt{font-size:13px;font-weight:800;color:var(--muted);margin-bottom:10px;letter-spacing:.02em}
+  .toc ol{margin:0;padding-left:20px}.toc li{margin-bottom:5px}
+  .toc a{color:var(--ink2);text-decoration:none;font-weight:600;font-size:15px}
+  .toc a:hover{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:6px 0 14px;font-size:14.5px}
+  th,td{text-align:left;padding:11px 12px;border-bottom:1px solid var(--line)}
+  th{background:var(--chip);font-weight:700;color:var(--ink);font-size:13.5px}
+  td{color:var(--ink2)}
+  td:first-child,th:first-child{font-weight:600}
+  .tnote{font-size:12.5px;color:var(--muted2);margin-top:-4px}
+  .keybox{background:var(--navy);color:#fff;border-radius:14px;padding:20px 22px;margin:8px 0 16px}
+  .keybox .kt{font-size:12.5px;font-weight:700;color:#aeb6c2;letter-spacing:.03em;margin-bottom:10px}
+  .keybox ul{padding-left:0;list-style:none;margin:0}
+  .keybox li{color:#e6eaf0;margin-bottom:8px;display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid #2b3344;padding-bottom:8px;font-size:14.5px}
+  .keybox li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .keybox li b{color:#fff;font-weight:800;text-align:right}
+  .cta{background:linear-gradient(135deg,#fff,#f6f8fb);border:1.5px solid var(--line);border-radius:16px;padding:22px 24px;margin:18px 0;text-align:center}
+  .cta .ct{font-size:17px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
+  .cta .cs{font-size:14px;color:var(--muted);margin-bottom:16px}
+  .cta a{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:15px;padding:13px 26px;border-radius:12px;letter-spacing:-.01em}
+  .cta a:hover{background:#2b3344}
+  .faq h3::before{content:"Q. ";color:var(--accent)}
+  .faq p{margin-left:2px}
+  .related a{display:block;text-decoration:none;color:var(--ink);padding:12px 0;border-bottom:1px solid var(--line);font-weight:700;font-size:15px}
+  .related a:last-child{border-bottom:none}
+  .related a:hover{color:var(--accent)}
+  .related .rc{font-size:12px;color:var(--muted2);font-weight:600;margin-right:8px}
+  .disc{font-size:12.5px;color:var(--muted2);line-height:1.6;margin-top:8px}
+  footer{text-align:center;margin-top:28px;font-size:13px;color:var(--muted2)}
+  footer a{color:var(--muted);text-decoration:none}
+  /* guide list */
+  .ghead{text-align:center;margin-bottom:8px}
+  .ghead h1{font-size:30px;margin-bottom:8px}
+  .ghead p{color:var(--muted);font-size:16px;margin-bottom:26px}
+  .gcat{font-size:13px;font-weight:800;color:var(--muted);letter-spacing:.03em;margin:26px 2px 12px}
+  .glist{display:grid;gap:12px}
+  .gitem{display:block;background:var(--card);border-radius:14px;box-shadow:var(--shadow);padding:18px 20px;text-decoration:none;border:1px solid transparent;transition:border-color .15s}
+  .gitem:hover{border-color:var(--navy)}
+  .gitem .gt{font-size:16.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:4px}
+  .gitem .gd{font-size:13.5px;color:var(--muted);line-height:1.5}
+  .gbadge{display:inline-block;font-size:11px;font-weight:800;color:var(--accent);background:var(--accent-soft);border-radius:6px;padding:3px 8px;margin-bottom:8px}
+  @media(max-width:560px){body{padding:18px 14px 56px}h1{font-size:25px}.ghead h1{font-size:25px}.card{padding:22px 20px}table{font-size:13.5px}th,td{padding:9px 8px}}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><div class="nav-seg"><a href="index.html">내집 계산기</a><a href="future.html">미래 자산</a><a href="guide.html" class="active">재테크자료</a></div></nav>
+<article><div class="eyebrow">대출 기초</div><h1>LTV·DSR·DTI, 3분이면 이해 끝</h1><p class="lead">대출 한도는 이 세 가지가 동시에 걸려서, 그중 가장 낮은 값이 내 한도가 됩니다. 하나씩 쉽게 풀어볼게요.</p><div class="meta">2026년 6월 기준 · homeplaning.kr</div>
+<div class="card">
+<h2><span class="n">01</span>LTV — 집값 기준</h2>
+<p><strong>담보인정비율.</strong> 집값 대비 얼마까지 빌려주는지예요. 예를 들어 5억 집에 LTV 70%면 최대 3.5억까지. 생애최초·지역에 따라 40~80%로 달라집니다.</p>
+</div>
+<div class="card">
+<h2><span class="n">02</span>DTI — 소득 대비 '주담대' 상환</h2>
+<p><strong>총부채상환비율.</strong> 연소득 대비 주담대 원리금 + 기타대출 이자의 비율이에요. 정책대출(디딤돌·보금자리론)은 DTI 60%가 적용됩니다.</p>
+</div>
+<div class="card">
+<h2><span class="n">03</span>DSR — 소득 대비 '모든 빚' 상환 (가장 중요)</h2>
+<p><strong>총부채원리금상환비율.</strong> 연소득 대비 <span class="accent">모든 대출</span>의 원리금 비율이에요. 은행 40%, 2금융 50%. 실제로 한도를 가장 빡빡하게 결정하는 관문입니다.</p>
+<div class="keybox"><div class="kt">2026 스트레스 DSR 3단계</div><ul>
+<li>한도 산정 시 <b>실제 금리 + 가산금리</b>로 계산</li>
+<li>수도권 주담대 <b>가산 폭 더 큼</b></li>
+<li>같은 소득이라도 <b>한도 축소</b></li></ul></div>
+<p>2025년 7월부터 스트레스 DSR 3단계가 시행돼, 한도를 계산할 때 실제 금리보다 높은 '심사금리'를 적용해요. 그래서 예전보다 한도가 줄었습니다.</p>
+</div>
+<div class="card">
+<h2><span class="n">04</span>한도 절대 상한 (수도권·규제지역)</h2>
+<p>비율을 통과해도 금액 상한이 따로 있어요.</p>
+<table><thead><tr><th>매매가</th><th>주담대 상한</th></tr></thead><tbody>
+<tr><td>15억 이하</td><td>6억</td></tr>
+<tr><td>15~25억</td><td>4억</td></tr>
+<tr><td>25억 초과</td><td>2억</td></tr></tbody></table>
+</div>
+<div class="card">
+<h2><span class="n">05</span>결론</h2>
+<p>내 대출 한도 = <strong>min(LTV 한도, DSR 한도, 절대 상한)</strong>. 셋 중 가장 낮은 값이에요. 그래서 "LTV로 4억 나온다"고 다 빌릴 수 있는 게 아니라, 소득이 받쳐줘야 해요.</p>
+</div>
+<div class="cta"><div class="ct">계산기가 표시해줘요</div><div class="cs">계산기는 LTV·DSR·절대캡 중 무엇에 걸렸는지 배지로 보여줘요.</div><a href="index.html">내 한도가 무엇에 막히는지 보기 &rarr;</a></div>
+<div class="card related"><h2><span class="n">+</span>관련 글</h2><a href="didimdol-vs-bogeumjari.html"><span class="rc">비교</span>디딤돌 vs 보금자리론 비교</a><a href="mortgage-rate-guide.html"><span class="rc">상환</span>고정 vs 변동, 원리금 vs 원금균등</a><a href="first-home-loan.html"><span class="rc">가이드</span>생애최초 주택담보대출 총정리</a></div><div class="card"><p class="disc">본 글은 주택도시기금·한국주택금융공사 등 공개 자료를 바탕으로 2026년 6월 기준으로 정리한 참고용 정보입니다. 정책·금리·세율은 수시로 바뀌며, 실제 대출 가능 여부·한도·금리·세금은 KB시세·신용점수·소득증빙·심사 결과에 따라 달라질 수 있습니다. 신청 전 반드시 주택도시기금(nhuf.molit.go.kr)·한국주택금융공사(hf.go.kr) 등에서 최신 기준을 확인하세요.</p></div><footer><a href="index.html">내집 계산기</a> · <a href="future.html">미래 자산</a> · <a href="guide.html">재테크자료</a></footer></article>
+</div>
+</body>
+</html>
