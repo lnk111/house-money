@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청년 적금 계산기 | 청년미래적금·청년도약계좌 만기 수령액 (2026)</title>
+<meta name="description" content="청년미래적금·청년도약계좌, 매달 얼마씩 저축하면 만기에 얼마를 받을까? 정부기여금·이자·비과세까지 반영해 만기 수령액을 바로 계산해주는 무료 계산기. 2026년 기준.">
+<meta name="keywords" content="청년미래적금 계산기, 청년도약계좌 계산기, 청년미래적금 만기 수령액, 청년도약계좌 만기, 정부기여금 계산, 청년 적금, 2026 청년정책, 청년미래적금 우대형">
+<meta property="og:type" content="website">
+<meta property="og:title" content="청년 적금 계산기 | 청년미래적금·청년도약계좌 만기 수령액">
+<meta property="og:description" content="매달 얼마씩 저축하면 만기에 얼마? 정부기여금·이자·비과세까지 반영한 무료 계산기.">
+<meta property="og:url" content="https://homeplaning.kr/youth-savings.html">
+<link rel="canonical" href="https://homeplaning.kr/youth-savings.html">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#eef1f6;--card:#fff;--ink:#1b2130;--ink2:#2a3142;--muted:#6f7888;--muted2:#9aa3b1;
+    --line:#e6eaf0;--track:#e3e7ee;--accent:#e8492f;--accent-soft:#fdece8;--chip:#f2f5f9;
+    --navy:#1b2130;--navy-soft:#39414f;--ok:#0f9d6b;--ok-soft:#e6f6ef;--blue:#2f6fe8;--blue-soft:#e8f0fd;
+    --radius:18px;--shadow:0 1px 2px rgba(27,33,48,.04),0 8px 24px rgba(27,33,48,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,"Apple SD Gothic Neo",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;padding:22px 18px 70px;font-size:16px}
+  .wrap{max-width:760px;margin:0 auto}
+  nav{display:flex;justify-content:center;margin-bottom:24px}
+  .nav-seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px;gap:2px;box-shadow:var(--shadow);flex-wrap:wrap;justify-content:center}
+  .nav-seg a{font-size:13.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:9px 15px;border-radius:999px;letter-spacing:-.01em;white-space:nowrap}
+  .nav-seg a:hover{color:var(--ink)}
+  .nav-seg a.active{background:var(--navy);color:#fff}
+
+  .eyebrow{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.02em;margin-bottom:9px;text-align:center}
+  h1{font-size:27px;font-weight:800;letter-spacing:-.03em;line-height:1.25;margin-bottom:10px;text-align:center}
+  .lead{font-size:15.5px;color:var(--muted);margin-bottom:24px;text-align:center}
+
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px;margin-bottom:16px}
+
+  /* product toggle */
+  .seg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+  .seg2 button{font-family:inherit;font-size:14.5px;font-weight:700;padding:14px 10px;border-radius:13px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer;line-height:1.3;transition:all .12s}
+  .seg2 button .s{display:block;font-size:11.5px;font-weight:600;color:var(--muted2);margin-top:2px}
+  .seg2 button.on{border-color:var(--navy);background:var(--navy);color:#fff}
+  .seg2 button.on .s{color:#c3cad6}
+
+  label.fl{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin:16px 0 7px}
+  .help{font-size:12px;color:var(--muted2);font-weight:500}
+  .inwrap{position:relative}
+  input[type=number]{width:100%;font-family:inherit;font-size:18px;font-weight:700;color:var(--ink);padding:13px 52px 13px 15px;border:1.5px solid var(--line);border-radius:12px;background:#fff;-moz-appearance:textfield}
+  input[type=number]:focus{outline:none;border-color:var(--navy)}
+  .unit{position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--muted2);font-weight:600}
+  .slider{width:100%;height:14px;-webkit-appearance:none;appearance:none;background:var(--track);border-radius:999px;margin-top:14px;outline:none}
+  .slider::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--navy);cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+  .slider::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--navy);cursor:pointer;border:3px solid #fff}
+  .rowval{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px}
+  .rowval .v{font-size:15px;font-weight:800}
+
+  .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+  .chip{font-size:13px;font-weight:700;padding:8px 13px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--muted);cursor:pointer}
+  .chip.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent)}
+
+  /* 은행별 금리 안내 박스 */
+  .bankbox{margin-top:14px;border:1.5px solid var(--line);border-radius:13px;background:var(--chip);overflow:hidden}
+  .bankbox summary{list-style:none;cursor:pointer;padding:13px 15px;font-size:13.5px;font-weight:700;color:var(--ink2);display:flex;align-items:center;justify-content:space-between}
+  .bankbox summary::-webkit-details-marker{display:none}
+  .bankbox summary::after{content:"⌄";font-size:18px;color:var(--muted2);transform:translateY(-3px);transition:transform .2s}
+  .bankbox[open] summary::after{transform:translateY(-1px) rotate(180deg)}
+  .bankbody{padding:2px 15px 15px}
+  .bankbody p{font-size:13px;color:var(--ink2);line-height:1.65;margin:8px 0}
+  .grade{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:8px 0}
+  .grade p{margin:4px 0 0}
+  .gtag{display:inline-block;font-size:11.5px;font-weight:800;padding:3px 9px;border-radius:6px}
+  .gtag.g8{background:var(--accent-soft);color:var(--accent)}
+  .gtag.g7{background:var(--blue-soft);color:var(--blue)}
+  .bnote{font-size:11.5px!important;color:var(--muted2)!important;margin-top:10px!important}
+
+  /* result */
+  .hero{background:var(--navy);color:#fff;border-radius:16px;padding:22px 22px;margin-bottom:14px}
+  .hero .t{font-size:12.5px;color:#aeb6c2;font-weight:700;letter-spacing:.02em;margin-bottom:6px}
+  .hero .big{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .hero .sub{font-size:13px;color:#c3cad6;margin-top:7px}
+
+  .break{display:grid;gap:9px;margin-top:2px}
+  .brow{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;background:var(--chip);border-radius:11px;font-size:14.5px}
+  .brow .l{color:var(--ink2);font-weight:600;display:flex;align-items:center;gap:8px}
+  .brow .r{font-weight:800}
+  .dot{width:9px;height:9px;border-radius:50%;flex:none}
+  .brow.gov .r{color:var(--accent)}
+
+  .note{font-size:12.5px;color:var(--muted2);line-height:1.6;margin-top:14px}
+  .badge{display:inline-block;font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:7px;margin-bottom:2px}
+  .badge.blue{background:var(--blue-soft);color:var(--blue)}
+  .badge.gray{background:var(--chip);color:var(--muted)}
+
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+  .cmp .cc{border:1.5px solid var(--line);border-radius:13px;padding:15px 14px}
+  .cmp .cc h4{font-size:14px;font-weight:800;margin-bottom:8px}
+  .cmp .cc .num{font-size:19px;font-weight:800;letter-spacing:-.02em}
+  .cmp .cc .lab{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+  .info h2{font-size:17px;font-weight:800;margin-bottom:12px}
+  .info table{width:100%;border-collapse:collapse;font-size:13.5px}
+  .info th,.info td{text-align:left;padding:10px 10px;border-bottom:1px solid var(--line)}
+  .info th{background:var(--chip);font-weight:700;font-size:12.5px}
+  .info td{color:var(--ink2)}
+  .disc{font-size:12px;color:var(--muted2);line-height:1.6;margin-top:6px}
+  footer{text-align:center;margin-top:24px;font-size:13px;color:var(--muted2)}
+  footer a{color:var(--muted);text-decoration:none}
+  @media(max-width:520px){
+    h1{font-size:23px}.hero .big{font-size:29px}
+    .cmp{grid-template-columns:1fr}
+    .card{padding:20px 18px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><div class="nav-seg">
+    <a href="index.html">내집 계산기</a>
+    <a href="future.html">미래 자산</a>
+    <a href="youth-savings.html" class="active">청년 적금</a>
+    <a href="guide.html">재테크자료</a>
+  </div></nav>
+
+  <div class="eyebrow">2026년 청년 정책</div>
+  <h1>청년 적금 계산기</h1>
+  <p class="lead">매달 저축하면 만기에 얼마? 정부기여금·이자·비과세까지 한 번에.</p>
+
+  <!-- 상품 선택 -->
+  <div class="card">
+    <div class="seg2">
+      <button id="bMirae" class="on" onclick="setProduct('mirae')">청년미래적금<span class="s">3년 · 월 50만 한도 · 신규 가능</span></button>
+      <button id="bLeap" onclick="setProduct('leap')">청년도약계좌<span class="s">5년 · 월 70만 한도 · 기존 가입자</span></button>
+    </div>
+    <div id="leapNotice" style="display:none;margin-top:10px"><span class="badge gray">참고</span> <span class="help">청년도약계좌는 2025년 12월 신규 가입이 종료됐어요. 이미 가입해 납입 중인 분을 위한 계산이에요.</span></div>
+
+    <!-- 유형 (미래적금 전용) -->
+    <div id="typeRow">
+      <label class="fl">가입 유형 <span class="help">· 정부기여금 비율이 달라요</span></label>
+      <div class="chips">
+        <div class="chip on" id="tGen" onclick="setType('gen')">일반형 (6%)</div>
+        <div class="chip" id="tPrem" onclick="setType('prem')">우대형 (12%)</div>
+        <div class="chip" id="tNone" onclick="setType('none')">기여금 없음</div>
+      </div>
+    </div>
+
+    <!-- 월 납입액 -->
+    <label class="fl">매달 납입액</label>
+    <div class="inwrap"><input type="number" id="monthly" value="50" min="0" oninput="onMonthly()"><span class="unit">만원</span></div>
+    <input type="range" id="mSlider" class="slider" min="0" max="50" step="1" value="50" oninput="onSlider()">
+    <div class="rowval"><span class="help" id="mMax">최대 50만원</span><span class="v" id="mEcho">월 50만원</span></div>
+
+    <!-- 적금 금리 -->
+    <label class="fl">적금 금리 (연) <span class="help">· 은행·우대조건에 따라 달라요</span></label>
+    <div class="inwrap"><input type="number" id="rate" value="5" min="0" step="0.1" oninput="calc()"><span class="unit">%</span></div>
+    <div class="chips" id="rateChips">
+      <div class="chip" id="rc0" onclick="setRate(0)">-</div>
+      <div class="chip" id="rc1" onclick="setRate(1)">-</div>
+      <div class="chip" id="rc2" onclick="setRate(2)">-</div>
+    </div>
+    <div class="help" id="rateHint" style="margin-top:8px"></div>
+
+    <!-- 미래적금 전용: 은행별 금리 차이 안내 (도약계좌 선택 시 숨김) -->
+    <details id="bankInfo" class="bankbox">
+      <summary>💡 같은 미래적금인데 왜 금리가 다를까?</summary>
+      <div class="bankbody">
+        <p>기본금리 <b>5%</b>는 모든 은행이 같아요. 차이는 <b>은행별 우대금리</b>에서 나뉘어요.</p>
+        <div class="grade">
+          <div class="gtag g8">최고 8% 그룹</div>
+          <p>우대금리 최대 <b>3%p</b>를 주는 은행 (예: 하나은행). 우대조건을 다 채우면 연 8%까지.</p>
+        </div>
+        <div class="grade">
+          <div class="gtag g7">최고 7% 그룹</div>
+          <p>우대금리 최대 <b>2%p</b>를 주는 은행 (예: 수협·iM뱅크·부산·광주·전북·경남·카카오뱅크 등). 최고 연 7%.</p>
+        </div>
+        <p class="bnote">※ 2026년 6월 공시 기준이며, 은행별 우대조건·금리는 바뀔 수 있어요. 가입 전 은행연합회 소비자포털이나 각 은행 앱에서 꼭 확인하세요.</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- 결과 -->
+  <div class="hero">
+    <div class="t">만기 예상 수령액</div>
+    <div class="big" id="rTotal">-</div>
+    <div class="sub" id="rSub">-</div>
+  </div>
+
+  <div class="card">
+    <div class="break">
+      <div class="brow"><span class="l"><span class="dot" style="background:#39414f"></span>내가 낸 원금</span><span class="r" id="rPrincipal">-</span></div>
+      <div class="brow gov"><span class="l"><span class="dot" style="background:#e8492f"></span>정부기여금</span><span class="r" id="rGov">-</span></div>
+      <div class="brow"><span class="l"><span class="dot" style="background:#2f6fe8"></span>이자 (비과세)</span><span class="r" id="rInterest">-</span></div>
+    </div>
+    <div class="note" id="govNote"></div>
+  </div>
+
+  <!-- 두 상품 비교 -->
+  <div class="card">
+    <span class="badge blue">한눈에 비교</span>
+    <h2 style="font-size:16px;font-weight:800;margin:8px 0 12px">같은 돈을 넣는다면?</h2>
+    <div class="cmp">
+      <div class="cc"><h4>청년미래적금</h4><div class="num" id="cMirae">-</div><div class="lab">3년 · 우대형 기준</div></div>
+      <div class="cc"><h4>청년도약계좌</h4><div class="num" id="cLeap">-</div><div class="lab">5년 · 최대기여 기준</div></div>
+    </div>
+    <p class="disc" style="margin-top:12px">※ 비교는 각 상품의 한도(미래적금 월50만/3년, 도약계좌 월70만/5년)와 대표 조건으로 계산한 예시예요. 만기·납입 기간이 다르니 단순 금액만으로 우열을 가리긴 어려워요.</p>
+  </div>
+
+  <!-- 정보 -->
+  <div class="card info">
+    <h2>두 상품, 핵심만 비교</h2>
+    <table>
+      <thead><tr><th>항목</th><th>청년미래적금</th><th>청년도약계좌</th></tr></thead>
+      <tbody>
+        <tr><td>가입</td><td>2026.6 신규</td><td>신규 종료(유지)</td></tr>
+        <tr><td>만기</td><td>3년</td><td>5년</td></tr>
+        <tr><td>월 한도</td><td>50만원</td><td>70만원</td></tr>
+        <tr><td>정부기여금</td><td>6% / 12%</td><td>월 최대 3.3만</td></tr>
+        <tr><td>대표 금리</td><td>5~8%</td><td>4.5~6%</td></tr>
+        <tr><td>비과세</td><td>○</td><td>○</td></tr>
+        <tr><td>나이</td><td>만 19~34세</td><td>만 19~34세</td></tr>
+      </tbody>
+    </table>
+    <p class="disc" style="margin-top:14px">본 계산기는 서민금융진흥원·금융위원회 등 공개 자료를 바탕으로 2026년 6월 기준으로 만든 참고용 도구입니다. 적금 이자는 적립식 단리로 단순 계산한 추정치이며, 실제 수령액은 은행별 금리·우대조건·정부기여금 심사 결과·세부 규정에 따라 달라질 수 있습니다. 정확한 내용은 서민금융진흥원(1397) 및 취급은행에서 확인하세요.</p>
+  </div>
+
+  <footer>
+    <a href="index.html">내집 계산기</a> · <a href="future.html">미래 자산</a> · <a href="guide.html">재테크자료</a>
+  </footer>
+</div>
+
+<script>
+  var product='mirae';   // mirae | leap
+  var gtype='gen';       // gen | prem | none  (미래적금 전용)
+
+  function won(man){ // 만원 단위 -> 보기 좋은 문자열
+    man=Math.round(man);
+    if(man>=10000){ var eok=Math.floor(man/10000); var rest=man%10000;
+      return rest? eok+'억 '+rest.toLocaleString()+'만원' : eok+'억원'; }
+    return man.toLocaleString()+'만원';
+  }
+  function cfg(){
+    if(product==='mirae') return {months:36, max:50};
+    return {months:60, max:70};
+  }
+  function govManTotal(monthly, months){
+    // 반환: 정부기여금 총액(만원)
+    if(product==='mirae'){
+      if(gtype==='none') return 0;
+      var rate = (gtype==='prem')?0.12:0.06;
+      return monthly*rate*months;
+    } else {
+      // 도약계좌: 월 최대 3.3만원(=0.33만원), 납입액의 매칭이지만 단순화해 최대치 가정
+      // 월 납입액이 적으면 기여금도 비례 축소(70만 기준 3.3만 -> 비율 약 4.7%)
+      var perMan = 3.3/70; // 만원당 기여 비율 근사
+      var g = monthly*perMan;
+      if(g>3.3) g=3.3;
+      return g*months;
+    }
+  }
+  function interestMan(monthly, months, annualPct){
+    var r=annualPct/100, it=0;
+    for(var m=1;m<=months;m++){ it += monthly*(r/12)*(months-m+1); }
+    return it;
+  }
+
+  function calc(){
+    var c=cfg();
+    var monthly=parseFloat(document.getElementById('monthly').value)||0;
+    if(monthly>c.max) monthly=c.max;
+    var rate=parseFloat(document.getElementById('rate').value)||0;
+    var months=c.months;
+
+    var principal=monthly*months;
+    var gov=govManTotal(monthly,months);
+    var interest=interestMan(monthly,months,rate);
+    var total=principal+gov+interest;
+
+    document.getElementById('rTotal').textContent=won(total);
+    document.getElementById('rSub').textContent=(product==='mirae'?'3년(36개월)':'5년(60개월)')+' 만기 기준 · 월 '+monthly+'만원 납입';
+    document.getElementById('rPrincipal').textContent=won(principal);
+    document.getElementById('rGov').textContent=(gov>0?'+ ':'')+won(gov);
+    document.getElementById('rInterest').textContent='+ '+won(interest);
+
+    // 기여금 안내
+    var note='';
+    if(product==='mirae'){
+      if(gtype==='prem') note='우대형은 납입액의 12%를 정부가 매달 보태줘요 (중소기업 재직·신규취업·소상공인 등 조건 충족 시).';
+      else if(gtype==='gen') note='일반형은 납입액의 6%를 정부가 매달 보태줘요. 우대형 조건이 되는지 꼭 확인하세요 — 기여금이 2배예요.';
+      else note='소득이 높아 정부기여금 대상이 아니어도, 이자에 대한 비과세 혜택은 받을 수 있어요.';
+    } else {
+      note='청년도약계좌 정부기여금은 소득 구간에 따라 월 최대 3.3만원이 매칭돼요. 여기서는 최대치를 가정한 추정이에요.';
+    }
+    document.getElementById('govNote').textContent=note;
+
+    // 비교 카드 (각 상품 대표 조건, 금리는 현재 입력값 사용)
+    var miraePrincipal=50*36, miraeGov=50*0.12*36, miraeInt=interestMan(50,36,rate);
+    var cMirae=miraePrincipal+miraeGov+miraeInt;
+    var leapPrincipal=70*60, leapGov=3.3*60, leapInt=interestMan(70,60,rate);
+    var cLeap=leapPrincipal+leapGov+leapInt;
+    document.getElementById('cMirae').textContent=won(cMirae);
+    document.getElementById('cLeap').textContent=won(cLeap);
+  }
+
+  function setProduct(p){
+    product=p;
+    document.getElementById('bMirae').classList.toggle('on',p==='mirae');
+    document.getElementById('bLeap').classList.toggle('on',p==='leap');
+    document.getElementById('typeRow').style.display=(p==='mirae')?'block':'none';
+    document.getElementById('leapNotice').style.display=(p==='leap')?'block':'none';
+    document.getElementById('bankInfo').style.display=(p==='mirae')?'block':'none';
+    var c=cfg();
+    var sl=document.getElementById('mSlider'); sl.max=c.max;
+    document.getElementById('mMax').textContent='최대 '+c.max+'만원';
+    var mi=document.getElementById('monthly');
+    if((parseFloat(mi.value)||0)>c.max){ mi.value=c.max; }
+    applyRatePreset();
+    // 상품 전환 시 기본 금리를 해당 상품의 '기본' 프리셋으로 맞춤
+    document.getElementById('rate').value=RATE_PRESETS[p].vals[0];
+    document.getElementById('rc0').classList.add('on');
+    document.getElementById('rc1').classList.remove('on');
+    document.getElementById('rc2').classList.remove('on');
+    syncSliderFromInput();
+    calc();
+  }
+  function setType(t){
+    gtype=t;
+    document.getElementById('tGen').classList.toggle('on',t==='gen');
+    document.getElementById('tPrem').classList.toggle('on',t==='prem');
+    document.getElementById('tNone').classList.toggle('on',t==='none');
+    calc();
+  }
+  // 상품별 금리 프리셋
+  var RATE_PRESETS={
+    mirae:{ vals:[5,7,8], labels:['기본 5%','우대 7%','최고 8%'],
+            hint:'기본금리 5%(전 은행 공통·3년 고정) + 은행 우대 2~3%p. 최고 8%는 우대조건을 모두 채웠을 때예요.' },
+    leap:{ vals:[4.5,5.5,6], labels:['기본 4.5%','우대 5.5%','최고 6%'],
+            hint:'출시 기준 기본 4.5%(2026년 변동금리 하락 중). 최고 6%는 총급여 2,400만원 이하 소득우대(+0.5%p)까지 포함한 값이에요.' }
+  };
+  function applyRatePreset(){
+    var p=RATE_PRESETS[product];
+    for(var i=0;i<3;i++){ document.getElementById('rc'+i).textContent=p.labels[i]; }
+    document.getElementById('rateHint').textContent=p.hint;
+  }
+  function setRate(i){
+    var v=RATE_PRESETS[product].vals[i];
+    document.getElementById('rate').value=v;
+    // 칩 활성표시
+    for(var k=0;k<3;k++){ document.getElementById('rc'+k).classList.toggle('on',k===i); }
+    calc();
+  }
+
+  function syncSliderFromInput(){
+    var c=cfg(); var v=parseFloat(document.getElementById('monthly').value)||0;
+    if(v>c.max)v=c.max; document.getElementById('mSlider').value=v;
+    document.getElementById('mEcho').textContent='월 '+v+'만원';
+  }
+  function onMonthly(){ syncSliderFromInput(); calc(); }
+  function onSlider(){
+    var v=document.getElementById('mSlider').value;
+    document.getElementById('monthly').value=v;
+    document.getElementById('mEcho').textContent='월 '+v+'만원';
+    calc();
+  }
+
+  // init
+  setProduct('mirae'); setType('gen');
+</script>
+</body>
+</html>
