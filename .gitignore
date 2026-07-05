@@ -22,3 +22,7 @@
 *.log
 *.tmp
 Thumbs.db
+
+# 로컬 백업본 (추적 제외, 파일은 유지)
+*-backup.html
+*-old-layout*.html
